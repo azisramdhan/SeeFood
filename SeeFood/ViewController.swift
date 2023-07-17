@@ -38,6 +38,14 @@ private extension ViewController {
             guard let results = request.results as? [VNClassificationObservation] else {
                 fatalError("Model failed to process iamge.")
             }
+            
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("hotdog") {
+                    print("It's Hotdog!")
+                } else {
+                    print("It's not Hotdog!")
+                }
+            }
             print(results)
         }
         
